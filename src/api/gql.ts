@@ -43,7 +43,9 @@ export const fetchGraphQL = async <ReturnType = GQLItemsResultType<unknown>>(
  * @returns All pages slugs
  */
 export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> =>
-  (
+  { try{
+
+    return(
     fetchGraphQL(`query($preview: Boolean){
       restaurantCollection(preview: $preview){
         items{
@@ -54,3 +56,8 @@ export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> =>
       }
     }`) as Promise<GQLItemsResultType<GQLRestaurant>>
   ).then((val) => val.data.restaurantCollection.items);
+  } catch (e) {
+    console.log('something went bad on fetching restaurants');
+    return [];
+  }
+}
