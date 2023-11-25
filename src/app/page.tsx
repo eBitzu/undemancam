@@ -1,6 +1,13 @@
 import { createElement } from 'react';
+import {
+  faMobileScreenButton,
+  faArrowUpRightFromSquare
+} from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { getAllRestaurants } from '../api/gql';
 import { Restaurant } from '../components/restaurant';
+
+library.add(faMobileScreenButton, faArrowUpRightFromSquare);
 
 export default async function Home() {
   const restaurants = (await getAllRestaurants()) ?? [];
