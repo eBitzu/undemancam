@@ -51,11 +51,16 @@ export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> =>
         items{
           restaurantName
           phoneNumber
+          isClosed
           website
+          location {
+            lat
+            lon
+          }
         }
       }
     }`) as Promise<GQLItemsResultType<GQLRestaurant>>
-  ).then((val) => val.data.restaurantCollection.items);
+  ).then((val) => val.data.restaurantCollection.items.sort((a, b) => a.isClosed ? 1 : -1));
   } catch (e) {
     console.log('something went bad on fetching restaurants');
     return [];

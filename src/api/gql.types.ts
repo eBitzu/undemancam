@@ -12,6 +12,10 @@ export type GQLItemsResultType<T> = {
 export type GQLRestaurant = {
   restaurantName: string;
   phoneNumber: string;
-  location: string;
+  location: {
+    lat: number;
+    lon: number;
+  };
   website: string;
+  isClosed: boolean;
 }
