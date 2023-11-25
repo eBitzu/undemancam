@@ -16,6 +16,7 @@ export const fetchGraphQL = async <ReturnType = GQLItemsResultType<unknown>>(
   try {
     preview = draftMode().isEnabled;
   } catch (er) {
+    // eslint-disable-next-line no-console
     console.error('no draft');
   }
   return (<ReturnType>fetch(
@@ -42,11 +43,10 @@ export const fetchGraphQL = async <ReturnType = GQLItemsResultType<unknown>>(
  * @param preview isPreview
  * @returns All pages slugs
  */
-export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> =>
-  { try{
-
-    return(
-    fetchGraphQL(`query($preview: Boolean){
+export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> => {
+  try {
+    return await (
+      fetchGraphQL(`query($preview: Boolean){
       restaurantCollection(preview: $preview){
         items{
           restaurantName
@@ -60,9 +60,12 @@ export const getAllRestaurants = async (): Promise<Array<GQLRestaurant>> =>
         }
       }
     }`) as Promise<GQLItemsResultType<GQLRestaurant>>
-  ).then((val) => val.data.restaurantCollection.items.sort((a, b) => a.isClosed ? 1 : -1));
+    ).then((val) =>
+      val.data.restaurantCollection.items.sort((a) => (a.isClosed ? 1 : -1))
+    );
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.log('something went bad on fetching restaurants');
     return [];
   }
-}
+};

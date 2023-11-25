@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 import { Header } from '../components/header/header';
+
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,11 +17,7 @@ export const metadata: Metadata = {
   keywords: ['mancare', 'restaurante', 'Brasov']
 };
 
-export default function RootLayout({
-  children
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>

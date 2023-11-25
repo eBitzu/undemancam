@@ -18,4 +18,4 @@ export type GQLRestaurant = {
   };
   website: string;
   isClosed: boolean;
-}
+};

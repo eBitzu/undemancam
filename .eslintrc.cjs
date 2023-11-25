@@ -9,8 +9,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'airbnb',
     'airbnb-typescript',
-    'next/core-web-vitals',
-    'plugin:storybook/recommended'
+    'next/core-web-vitals'
   ],
   overrides: [
     {
@@ -32,9 +31,7 @@ module.exports = {
     '*.config.js',
     'out',
     'public',
-    'storybook-static',
-    'coverage',
-    '.storybook'
+    'coverage'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -47,22 +44,8 @@ module.exports = {
     }
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', '@typescript-eslint', 'prettier', 'jsdoc'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'jsdoc/require-jsdoc': [
-      'error',
-      {
-        contexts: [
-          'FunctionDeclaration',
-          'ArrowFunctionExpression',
-          'FunctionExpression'
-        ],
-        publicOnly: true,
-        exemptEmptyFunctions: true
-      }
-    ],
-    'jsdoc/require-param': 0, // too verbose
-    'jsdoc/check-param-names': 0,
     'import/prefer-default-export': 0,
     'implicit-arrow-linebreak': 0,
     'operator-linebreak': 0,

@@ -7,13 +7,9 @@ export const Search = () => {
   const router = useRouter();
   const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.code === 'Enter') {
-      console.log(
-        'aaaa',
-        e.currentTarget.value
-      );
       const params = new URLSearchParams();
       params.set('search', e.currentTarget.value);
-      router.push(`/?${params}`)
+      router.push(`/?${params}`);
     }
   };
   return (
