@@ -37,6 +37,7 @@ export const Restaurant: FC<GQLRestaurant> = ({
           </div>
         )}
       </div>
+      {/* <LocationShow /> */}
     </div>
   );
 };
