@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { GQLRestaurant } from '../../api/gql.types';
+import { GQLRestaurant } from '../../contentful/gql.types';
 
 export const Restaurant: FC<GQLRestaurant> = ({
   phoneNumber,

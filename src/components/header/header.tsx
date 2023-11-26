@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { LogoComponent } from '../logo';
-import { Search } from '../search/search';
+import { Search } from '../search';
 
 export const Header = () => (
   <header className="h-32 lg:h-20 mx-auto sticky pt-1 px-5 flex justify-between items-center border-solid border-b-2 border-black dark:border-white">
