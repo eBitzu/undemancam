@@ -38,9 +38,7 @@ export const Restaurant: FC<GQLRestaurant> = ({
         </div>
       )}
     </div>
-    <div>
-      <IsVisited term={restaurantName} />
-    </div>
+    <div>{!isClosed && <IsVisited term={restaurantName} />}</div>
     {/* <LocationShow /> */}
   </div>
 );
