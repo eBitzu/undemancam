@@ -1,1 +1,1 @@
-export { useSearchState } from './search/search.state';
+export { useRestaurantChecked } from './search/search.state';

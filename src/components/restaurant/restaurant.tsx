@@ -1,5 +1,11 @@
 import { FC } from 'react';
+import dynamic from 'next/dynamic';
 import { GQLRestaurant } from '../../contentful/gql.types';
+
+const IsVisited = dynamic(
+  () => import('../is-visited/is-visited').then((module) => module.default),
+  { ssr: false }
+);
 
 export const Restaurant: FC<GQLRestaurant> = ({
   phoneNumber,
@@ -7,7 +13,7 @@ export const Restaurant: FC<GQLRestaurant> = ({
   restaurantName,
   website
 }) => (
-  <div className="border-orange-400 border-solid rounded-md border-2 py-2 px-5 flex justify-between">
+  <div className="border-orange-400 border-solid rounded-md border-2 py-2 px-5 flex justify-between items-center">
     <div>
       <div className="flex items-center gap-3">
         <h4 className="text-xl inline-block">
@@ -32,9 +38,9 @@ export const Restaurant: FC<GQLRestaurant> = ({
         </div>
       )}
     </div>
-    {/* <div>
-
-    </div> */}
+    <div>
+      <IsVisited term={restaurantName} />
+    </div>
     {/* <LocationShow /> */}
   </div>
 );
