@@ -1,14 +1,9 @@
 import { FC, createElement } from 'react';
-import {
-  faMobileScreenButton,
-  faArrowUpRightFromSquare
-} from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+
 import { cookies } from 'next/headers';
 import { GQLRestaurant } from '../../contentful/gql.types';
 import { Restaurant } from './restaurant';
 
-library.add(faMobileScreenButton, faArrowUpRightFromSquare);
 type RestaurantListProps = {
   restaurants: Array<GQLRestaurant>;
 };

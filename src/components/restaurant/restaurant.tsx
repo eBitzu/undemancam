@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GQLRestaurant } from '../../contentful/gql.types';
 
 export const Restaurant: FC<GQLRestaurant> = ({
@@ -22,20 +21,20 @@ export const Restaurant: FC<GQLRestaurant> = ({
             className="text-blue-700"
             title="website"
           >
-            <FontAwesomeIcon icon={['fas', 'arrow-up-right-from-square']} />
+            <i className="fa-solid fa-arrow-up-right-from-square" />
           </a>
         )}
       </div>
       {!!phoneNumber && (
         <div className="flex gap-2 items-center">
-          <FontAwesomeIcon
-            className="dark:fill-white inline-block"
-            icon={['fas', 'mobile-screen-button']}
-          />
+          <i className="fa-solid fa-mobile-screen-button dark:fill-white" />
           <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
         </div>
       )}
     </div>
+    {/* <div>
+
+    </div> */}
     {/* <LocationShow /> */}
   </div>
 );
